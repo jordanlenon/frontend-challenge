@@ -49,7 +49,6 @@
 </template>
 
 <script setup>
-import { defineProps } from 'vue'
 import useFormatters from '@/composables/useFormatters'
 
 const props = defineProps({

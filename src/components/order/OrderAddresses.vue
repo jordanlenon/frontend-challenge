@@ -65,7 +65,7 @@
 </template>
 
 <script setup>
-import { defineProps, ref } from 'vue'
+import { ref } from 'vue'
 import useFormatters from '@/composables/useFormatters'
 
 const props = defineProps({

@@ -1,3 +1,6 @@
+@use "sass:math";
+@use "sass:map";
+
 // Grid System Variables
 $grid-columns: 12;
 $grid-gutter: 1rem;
@@ -23,26 +26,26 @@ $grid-breakpoints: (
 .row {
   display: flex;
   flex-wrap: wrap;
-  margin: 0 (-$grid-gutter / 2);
+  margin: 0 calc(-1 * $grid-gutter / 2);
   box-sizing: border-box;
 }
 
 // Column base
 [class*="col-"] {
   flex: 0 0 auto;
-  padding: 0 ($grid-gutter / 2);
+  padding: 0 calc($grid-gutter / 2);
   box-sizing: border-box;
 }
 
 // Mobile only
-@media (min-width: map-get($grid-breakpoints, md)) {
+@media (min-width: map.get($grid-breakpoints, md)) {
   .desktop-hidden {
     display: none;
   }
 }
 
 // Mobile hidden
-@media (max-width: map-get($grid-breakpoints, md)) {
+@media (max-width: map.get($grid-breakpoints, md)) {
   .mobile-hidden {
     display: none;
   }
@@ -62,15 +65,15 @@ $grid-breakpoints: (
     // Generate numbered columns
     @for $i from 1 through $grid-columns {
       .col#{$infix}-#{$i} {
-        flex: 0 0 percentage($i / $grid-columns);
-        max-width: percentage($i / $grid-columns);
+        flex: 0 0 math.percentage(math.div($i, $grid-columns));
+        max-width: math.percentage(math.div($i, $grid-columns));
       }
     }
 
     // Generate offset classes
     @for $i from 0 through ($grid-columns - 1) {
       .offset#{$infix}-#{$i} {
-        margin-left: if($i == 0, 0, percentage($i / $grid-columns));
+        margin-left: if($i == 0, 0, math.percentage(math.div($i, $grid-columns)));
       }
     }
 

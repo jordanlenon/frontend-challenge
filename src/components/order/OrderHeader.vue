@@ -75,7 +75,6 @@
 </template>
 
 <script setup>
-import { defineProps } from 'vue'
 import useFormatters from '@/composables/useFormatters'
 
 const props = defineProps({
@@ -89,8 +88,6 @@ const { formatDate, formatCurrency, formatPhone } = useFormatters()
 </script>
 
 <style lang="scss">
-@import '@/assets/styles/variables.scss';
-
 .order-header {
   margin-bottom: 32px;
 
@@ -101,7 +98,7 @@ const { formatDate, formatCurrency, formatPhone } = useFormatters()
   // Badge
   .order-header__badge {
     width: 100%;
-    background-color: $color-primary;
+    background-color: var(--color-primary);
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -204,7 +201,7 @@ const { formatDate, formatCurrency, formatPhone } = useFormatters()
       line-height: 28px;
 
       &--success {
-        color: #1E976C;
+        color: var(--color-success);
       }
 
       @media (max-width: 768px) {
