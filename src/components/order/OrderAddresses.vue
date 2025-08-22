@@ -118,7 +118,7 @@ const toggleAddresses = () => {
   .order-addresses__title {
     font-size: 16px;
     line-height: 20px;
-    color: #303E49;
+    color: var(--color-text-secondary);
     font-weight: 600;
     display: flex;
     align-items: center;
@@ -126,7 +126,7 @@ const toggleAddresses = () => {
 
     &:hover {
       .order-addresses__toggle {
-        background-color: #1052E0;
+        background-color: var(--color-primary);
         color: #fff;
       }
     }
@@ -141,7 +141,7 @@ const toggleAddresses = () => {
     align-items: center;
     justify-content: center;
     background-color: #EDF3FF;
-    color: #1052E0;
+    color: var(--color-primary);
     font-size: 15px;
     margin-right: 8px;
     transition: all 0.3s ease;

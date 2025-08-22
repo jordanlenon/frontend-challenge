@@ -24,12 +24,12 @@ defineProps({
   line-height: 16px;
 
   &--primary {
-    color: #1052E0;
+    color: var(--color-primary);
     background-color: #EDF3FF;
   }
 
   &--success {
-    color: #1E976C;
+    color: var(--color-success);
     background-color: #E6F7ED;
   }
 }

@@ -39,7 +39,7 @@
     margin-bottom: 16px;
     display: flex;
     align-items: center;
-    color: #303E49;
+    color: var(--color-text-secondary);
 
     .chip {
       margin-left: 8px;

@@ -1,7 +1,3 @@
-<script setup>
-import OrderDetails from '@/components/order/OrderDetails.vue'
-</script>
-
 <template>
-  <OrderDetails />
+  <router-view />
 </template>
