@@ -4,9 +4,9 @@
       <loadingBox v-if="loading" text="Carregando dados do pedido..." />
       <alert v-else-if="errorMessage" type="error">{{ errorMessage }}</alert>
       <template v-if="orderData">
-        <OrderHeader :orderData="orderData" />
-        <OrderSupplierInfo :orderData="orderData" />
-        <OrderAddresses :orderData="orderData" />
+        <OrderHeader :header="orderData?.header" />
+        <OrderSupplierInfo :supplier="orderData?.supplier" />
+        <OrderAddresses :addresses="orderData?.addresses" />
       </template>
     </div>
   </div>

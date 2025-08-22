@@ -12,7 +12,7 @@
 
     <div class="order-addresses__content" :class="{ 'order-addresses__content--open': isOpen }">
       <div class="row order-addresses__items">
-        <template v-for="addressItem in orderData.addresses" :key="addressItem.label">
+        <template v-for="addressItem in addresses" :key="addressItem.label">
           <div class="col-12 col-md-12 col-lg-4 order-addresses__item">
             <card>
               <template #subtitle>
@@ -69,8 +69,8 @@ import { ref } from 'vue'
 import useFormatters from '@/composables/useFormatters'
 
 const props = defineProps({
-  orderData: {
-    type: Object,
+  addresses: {
+    type: Array,
     required: true
   }
 })

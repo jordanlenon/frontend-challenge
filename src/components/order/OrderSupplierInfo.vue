@@ -4,43 +4,44 @@
       Supplier
     </template>
     <template #title>
-      {{ orderData?.supplier?.name }}
-      <chip color="primary" class="label" v-if="orderData?.supplier?.code">
-        #{{ orderData?.supplier?.code }}
+      {{ supplier?.name }}
+      <chip color="primary" class="label" v-if="supplier?.code">
+        #{{ supplier?.code }}
       </chip>
     </template>
     <template #content>
       <div class="row">
         <div class="col-12 col-md-6">
-          <div class="order__item" v-if="orderData?.supplier?.document?.type && orderData?.supplier?.document?.value">
+          <div class="order__item" v-if="supplier?.document?.type && supplier?.document?.value">
             <icon name="fa-light fa-id-card" />
-            {{ orderData.supplier.document.type }}: {{ orderData.supplier.document.value }}
+            {{ supplier.document.type }}: {{ supplier.document.value }}
           </div>
-          <div class="order__item" v-if="orderData?.supplier?.address">
+          <div class="order__item" v-if="supplier?.address">
             <icon name="fa-light fa-location-check" />
-            {{ orderData.supplier.address }}
+            {{ supplier.address }}
           </div>
-          <div class="order__item" v-if="orderData?.supplier?.contact?.name">
+          <div class="order__item" v-if="supplier?.contact?.name">
             <icon name="fa-light fa-user" />
-            {{ orderData.supplier.contact.name }}
+            {{ supplier.contact.name }}
           </div>
         </div>
         <div class="col-12 col-md-6">
-          <div class="order__item" v-if="orderData?.supplier?.contact?.email">
+          <div class="order__item" v-if="supplier?.contact?.email">
             <icon name="fa-light fa-envelope" />
-            {{ orderData.supplier.contact.email }}
+            {{ supplier.contact.email }}
           </div>
-          <div class="order__item" v-if="orderData?.supplier?.contact?.phone">
+          <div class="order__item" v-if="supplier?.contact?.phone">
             <icon name="fa-light fa-phone" />
-            {{ formatPhone(orderData.supplier.contact.phone) }}
+            {{ formatPhone(supplier.contact.phone) }}
           </div>
-          <div class="order__item" v-if="orderData?.supplier?.contact?.fax">
+          <div class="order__item" v-if="supplier?.contact?.fax">
             <icon name="fa-light fa-fax" />
-            {{ orderData.supplier.contact.fax }}
+            {{ supplier.contact.fax }}
           </div>
-          <div class="order__item" v-if="orderData?.supplier?.readAt">
+          <div class="order__item" v-if="supplier?.readAt"
+            v-tooltip="{ content: `Read at full date: ${supplier.readAt}`, placement: 'left' }">
             <icon name="fa-light fa-eye" />
-            {{ formatDate(orderData.supplier.readAt) }}
+            {{ formatDate(supplier.readAt) }}
           </div>
         </div>
       </div>
@@ -52,7 +53,7 @@
 import useFormatters from '@/composables/useFormatters'
 
 const props = defineProps({
-  orderData: {
+  supplier: {
     type: Object,
     required: true
   }

@@ -5,24 +5,28 @@
       <div class="col-5 col-md-3 col-lg-2">
         <div class="order-header__badge">
           <div class="order-header__badge-type">Pre-Order</div>
-          <div class="order-header__badge-number">{{ orderData.header.number }}</div>
-          <div class="order-header__badge-serial">#ME{{ orderData.header.serial }}</div>
+          <div class="order-header__badge-number" v-if="header?.number">
+            {{ header.number }}
+          </div>
+          <div class="order-header__badge-serial" v-if="header?.serial">
+            #ME{{ header.serial }}
+          </div>
         </div>
       </div>
 
       <!-- Mobile Summary -->
       <div class="desktop-hidden col-7 col-md-4 col-lg-3">
         <div class="order-header__summary">
-          <div class="order-header__price">
-            {{ formatCurrency(orderData.header.price, orderData.header.currency) }}
+          <div class="order-header__price" v-if="header?.price">
+            {{ formatCurrency(header.price, header.currency) }}
           </div>
-          <div class="order-header__status order-header__status--success">
-            {{ orderData.header.status }}
+          <div class="order-header__status order-header__status--success" v-if="header?.status">
+            {{ header.status }}
           </div>
-          <div class="order-header__meta">
-            Created at {{ formatDate(orderData.header.createdAt) }}
-            <icon name="fa-solid fa-info-circle" style="display: inline;"
-              v-tooltip="`Created at full date: ${orderData.header.createdAt}`" />
+          <div class="order-header__meta" v-if="header?.createdAt"
+            v-tooltip="`Created at full date: ${header.createdAt}`">
+            Created at {{ formatDate(header.createdAt) }}
+            <icon name="fa-solid fa-info-circle" style="display: inline;" />
           </div>
         </div>
       </div>
@@ -30,26 +34,26 @@
       <!-- Main Info -->
       <div class="col-12 col-md-5 col-lg-7">
         <div class="order-header__main-info">
-          <h1 class="order-header__title text-secondary">
-            {{ orderData.header.buyer }}
+            <h1 class="order-header__title text-secondary" v-if="header?.buyer">
+            {{ header.buyer }}
           </h1>
-          <div class="order-header__contact-info">
-            <div class="order-header__contact-item">
+          <div class="order-header__contact-info" v-if="header?.contact">
+            <div class="order-header__contact-item" v-if="header?.contact?.name">
               <icon name="fa-light fa-user" />
-              {{ orderData.header.contact.name }}
+              {{ header.contact.name }}
             </div>
             <div class="order-header__contact-row">
-              <div class="order-header__contact-item">
+              <div class="order-header__contact-item" v-if="header?.contact?.email">
                 <icon name="fa-light fa-envelope" />
-                {{ orderData.header.contact.email }}
+                {{ header.contact.email }}
               </div>
-              <div class="order-header__contact-item">
+              <div class="order-header__contact-item" v-if="header?.contact?.phone">
                 <icon name="fa-light fa-phone" />
-                {{ formatPhone(orderData.header.contact.phone) }}
+                {{ formatPhone(header.contact.phone) }}
               </div>
-              <div class="order-header__contact-item">
+              <div class="order-header__contact-item" v-if="header?.contact?.fax">
                 <icon name="fa-light fa-fax" />
-                {{ formatPhone(orderData.header.contact.fax) }}
+                {{ formatPhone(header.contact.fax) }}
               </div>
             </div>
           </div>
@@ -59,15 +63,16 @@
       <!-- Summary -->
       <div class="mobile-hidden col-12 col-md-4 col-lg-3">
         <div class="order-header__summary">
-          <div class="order-header__price">
-            {{ formatCurrency(orderData.header.price, orderData.header.currency) }}
+          <div class="order-header__price" v-if="header?.price">
+            {{ formatCurrency(header.price, header.currency) }}
           </div>
-          <div class="order-header__status order-header__status--success">
-            {{ orderData.header.status }}
+          <div class="order-header__status order-header__status--success" v-if="header?.status">
+            {{ header.status }}
           </div>
-          <div class="order-header__meta">
-            Created at {{ formatDate(orderData.header.createdAt) }}
-            <icon name="fa-solid fa-info-circle" v-tooltip="`Created at full date: ${orderData.header.createdAt}`" />
+          <div class="order-header__meta" v-if="header?.createdAt"
+            v-tooltip="`Created at full date: ${header.createdAt}`">
+            Created at {{ formatDate(header.createdAt) }}
+            <icon name="fa-solid fa-info-circle" />
           </div>
         </div>
       </div>
@@ -78,8 +83,8 @@
 <script setup>
 import useFormatters from '@/composables/useFormatters'
 
-const props = defineProps({
-  orderData: {
+defineProps({
+  header: {
     type: Object,
     required: true
   }
