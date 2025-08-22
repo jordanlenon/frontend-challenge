@@ -2,7 +2,7 @@
   <div class="order-header">
     <div class="row align-items-start">
       <!-- Blue Badge -->
-      <div class="col-6 col-md-3 col-lg-2">
+      <div class="col-5 col-md-3 col-lg-2">
         <div class="order-header__badge">
           <div class="order-header__badge-type">Pre-Order</div>
           <div class="order-header__badge-number">{{ orderData.header.number }}</div>
@@ -11,7 +11,7 @@
       </div>
 
       <!-- Mobile Summary -->
-      <div class="desktop-hidden col-6 col-md-4 col-lg-3">
+      <div class="desktop-hidden col-7 col-md-4 col-lg-3">
         <div class="order-header__summary">
           <div class="order-header__price">
             {{ formatCurrency(orderData.header.price, orderData.header.currency) }}
@@ -21,7 +21,8 @@
           </div>
           <div class="order-header__meta">
             Created at {{ formatDate(orderData.header.createdAt) }}
-            <icon name="fa-solid fa-info-circle" />
+            <icon name="fa-solid fa-info-circle" style="display: inline;"
+              v-tooltip="`Created at full date: ${orderData.header.createdAt}`" />
           </div>
         </div>
       </div>
@@ -66,7 +67,7 @@
           </div>
           <div class="order-header__meta">
             Created at {{ formatDate(orderData.header.createdAt) }}
-            <icon name="fa-solid fa-info-circle" />
+            <icon name="fa-solid fa-info-circle" v-tooltip="`Created at full date: ${orderData.header.createdAt}`" />
           </div>
         </div>
       </div>
@@ -105,7 +106,7 @@ const { formatDate, formatCurrency, formatPhone } = useFormatters()
     justify-content: center;
     color: #fff;
     border-radius: 0 8px 8px 0;
-    padding: 16px;
+    padding: 20px 16px;
 
     @media (max-width: 768px) {
       margin-bottom: 1rem;

@@ -2,6 +2,8 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import '@/assets/styles/main.scss'
 import router from './router'
+import { vTooltip } from 'floating-vue'
+
 
 // Create app
 const app = createApp(App)
@@ -19,6 +21,7 @@ app.component('card', Card)
 app.component('chip', Chip)
 app.component('loadingBox', LoadingBox)
 app.component('alert', Alert)
+app.directive('tooltip', vTooltip)
 
 // Router
 app.use(router)

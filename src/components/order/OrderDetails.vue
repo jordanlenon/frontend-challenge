@@ -37,6 +37,10 @@ onMounted(async () => {
   padding: 24px;
   min-height: 100vh;
 
+  @media (max-width: 768px) {
+    padding: 16px;
+  }
+
   .order__item {
     & + .order__item {
       margin-top: 4px;
