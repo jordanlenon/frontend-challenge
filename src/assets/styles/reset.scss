@@ -1,0 +1,59 @@
+// Simple CSS Reset - Only Essential Normalizations
+// Remove default margins and paddings from common elements
+* {
+  box-sizing: border-box;
+}
+
+html {
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+}
+
+// Reset headings margins
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+}
+
+// Reset lists
+ul, ol {
+  margin: 0;
+  padding: 0;
+}
+
+// Reset paragraphs
+p {
+  margin: 0;
+}
+
+// Reset buttons
+button {
+  border: none;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+// Reset images
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+// Reset inputs
+input, textarea, select {
+  font-family: inherit;
+  font-size: inherit;
+  margin: 0;
+}
+
+// Remove outline for mouse users but keep for keyboard users
+button:focus:not(:focus-visible),
+input:focus:not(:focus-visible),
+textarea:focus:not(:focus-visible),
+select:focus:not(:focus-visible) {
+  outline: none;
+}

@@ -1,0 +1,232 @@
+// Grid System Variables
+$grid-columns: 12;
+$grid-gutter: 1rem;
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px
+);
+
+// Container
+.container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0;
+  box-sizing: border-box;
+  max-width: 1320px;
+}
+
+// Row
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 (-$grid-gutter / 2);
+  box-sizing: border-box;
+}
+
+// Column base
+[class*="col-"] {
+  flex: 0 0 auto;
+  padding: 0 ($grid-gutter / 2);
+  box-sizing: border-box;
+}
+
+// Mobile only
+@media (min-width: map-get($grid-breakpoints, md)) {
+  .desktop-hidden {
+    display: none;
+  }
+}
+
+// Mobile hidden
+@media (max-width: map-get($grid-breakpoints, md)) {
+  .mobile-hidden {
+    display: none;
+  }
+}
+
+// Generate columns for each breakpoint
+@each $breakpoint, $width in $grid-breakpoints {
+  $infix: if($breakpoint == xs, "", "-#{$breakpoint}");
+
+  @media (min-width: $width) {
+    // Auto column
+    .col#{$infix}-auto {
+      flex: 0 0 auto;
+      width: auto;
+    }
+
+    // Generate numbered columns
+    @for $i from 1 through $grid-columns {
+      .col#{$infix}-#{$i} {
+        flex: 0 0 percentage($i / $grid-columns);
+        max-width: percentage($i / $grid-columns);
+      }
+    }
+
+    // Generate offset classes
+    @for $i from 0 through ($grid-columns - 1) {
+      .offset#{$infix}-#{$i} {
+        margin-left: if($i == 0, 0, percentage($i / $grid-columns));
+      }
+    }
+
+    // Order utilities
+    .order#{$infix}-first {
+      order: -1;
+    }
+
+    .order#{$infix}-last {
+      order: $grid-columns + 1;
+    }
+
+    @for $i from 0 through $grid-columns {
+      .order#{$infix}-#{$i} {
+        order: $i;
+      }
+    }
+  }
+}
+
+// Utility classes
+.no-gutters {
+  margin: 0;
+
+  > [class*="col-"] {
+    padding: 0;
+  }
+}
+
+.justify-content-start {
+  justify-content: flex-start;
+}
+
+.justify-content-end {
+  justify-content: flex-end;
+}
+
+.justify-content-center {
+  justify-content: center;
+}
+
+.justify-content-between {
+  justify-content: space-between;
+}
+
+.justify-content-around {
+  justify-content: space-around;
+}
+
+.justify-content-evenly {
+  justify-content: space-evenly;
+}
+
+.align-items-start {
+  align-items: flex-start;
+}
+
+.align-items-end {
+  align-items: flex-end;
+}
+
+.align-items-center {
+  align-items: center;
+}
+
+.align-items-baseline {
+  align-items: baseline;
+}
+
+.align-items-stretch {
+  align-items: stretch;
+}
+
+.align-self-start {
+  align-self: flex-start;
+}
+
+.align-self-end {
+  align-self: flex-end;
+}
+
+.align-self-center {
+  align-self: center;
+}
+
+.align-self-baseline {
+  align-self: baseline;
+}
+
+.align-self-stretch {
+  align-self: stretch;
+}
+
+// Flex utilities
+.flex-row {
+  flex-direction: row;
+}
+
+.flex-row-reverse {
+  flex-direction: row-reverse;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.flex-column-reverse {
+  flex-direction: column-reverse;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.flex-nowrap {
+  flex-wrap: nowrap;
+}
+
+.flex-wrap-reverse {
+  flex-wrap: wrap-reverse;
+}
+
+// Responsive visibility
+@each $breakpoint, $width in $grid-breakpoints {
+  $infix: if($breakpoint == xs, "", "-#{$breakpoint}");
+
+  @media (min-width: $width) {
+    .d#{$infix}-none {
+      display: none !important;
+    }
+
+    .d#{$infix}-block {
+      display: block !important;
+    }
+
+    .d#{$infix}-flex {
+      display: flex !important;
+    }
+
+    .d#{$infix}-inline {
+      display: inline !important;
+    }
+
+    .d#{$infix}-inline-block {
+      display: inline-block !important;
+    }
+  }
+}
+
+// Hide on specific breakpoints
+@each $breakpoint, $width in $grid-breakpoints {
+  $infix: if($breakpoint == xs, "", "-#{$breakpoint}");
+
+  @media (max-width: $width - 1px) {
+    .d#{$infix}-none {
+      display: none !important;
+    }
+  }
+}
