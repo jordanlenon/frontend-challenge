@@ -58,21 +58,9 @@ export default function useFormatters() {
     return phone // Return original if can't format
   }
 
-  /**
-   * Truncate text with ellipsis
-   * @param {string} text - Text to truncate
-   * @param {number} maxLength - Maximum length
-   * @returns {string} - Truncated text
-   */
-  const truncateText = (text, maxLength = 50) => {
-    if (!text || text.length <= maxLength) return text
-    return text.slice(0, maxLength) + '...'
-  }
-
   return {
     formatDate,
     formatCurrency,
-    formatPhone,
-    truncateText
+    formatPhone
   }
 }

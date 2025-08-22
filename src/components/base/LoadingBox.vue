@@ -1,7 +1,9 @@
 <template>
   <div class="loading">
     <div class="loading__spinner"></div>
-    <p class="loading__text">{{ text }}</p>
+    <p class="loading__text">
+      {{ text }}
+    </p>
   </div>
 </template>
 
@@ -17,19 +19,19 @@ defineProps({
 <style lang="scss">
 .loading {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
-  min-height: 200px;
+  min-height: 100px;
 
   .loading__spinner {
-    width: 40px;
-    height: 40px;
+    width: 24px;
+    height: 24px;
     border: 4px solid #f3f3f3;
     border-top: 4px solid var(--color-primary);
     border-radius: 50%;
     animation: spin 1s linear infinite;
-    margin-bottom: 16px;
+    margin-right: 8px;
   }
 
   .loading__text {

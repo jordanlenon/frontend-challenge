@@ -1,7 +1,12 @@
 <template>
   <div class="order-details">
     <div class="container">
-      <loadingBox v-if="loading" text="Carregando dados do pedido..." />
+      <template v-if="loading">
+        <SkeletonLoading :rows="2" :columns="3" />
+        <SkeletonLoading :rows="4" :columns="2" />
+        <SkeletonLoading :rows="5" :columns="3" />
+        <loadingBox text="Loading order details..." />
+      </template>
       <alert v-else-if="errorMessage" type="error">{{ errorMessage }}</alert>
       <template v-if="orderData">
         <OrderHeader :header="orderData?.header" />
