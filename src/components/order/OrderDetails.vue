@@ -21,26 +21,14 @@ import OrderHeader from './OrderHeader.vue'
 import OrderSupplierInfo from './OrderSupplierInfo.vue'
 import OrderAddresses from './OrderAddresses.vue'
 
-import { mockOrderData } from '@/data/mockOrder'
-
 const route = useRoute()
 const orderId = route.params.id
 
 const { getOrderById, loading, errorMessage } = useOrders()
 const orderData = ref(null)
 
-const loadOrderData = async () => {
-  try {
-    const response = await getOrderById(orderId)
-    orderData.value = response
-  } catch (err) {
-    // Fallback to mock data, just for testing
-    orderData.value = mockOrderData
-  }
-}
-
-onMounted(() => {
-  loadOrderData()
+onMounted(async () => {
+  orderData.value = await getOrderById(orderId)
 })
 </script>
 

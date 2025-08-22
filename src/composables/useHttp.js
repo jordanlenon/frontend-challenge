@@ -56,7 +56,7 @@ export const useHttp = () => {
   const setupInterceptors = () => {
     axiosInstance.interceptors.request.use((config) => {
       if (!config.url?.includes('http')) {
-        config.url = `${import.meta.env.VITE_API_URL}${config.url}`;
+        config.url = `/api${config.url}`;
       }
 
       config.headers = {
