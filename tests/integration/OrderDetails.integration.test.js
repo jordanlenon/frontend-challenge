@@ -1,10 +1,10 @@
 import { describe, it, expect, beforeAll, afterEach, afterAll } from 'vitest'
 import { mount, flushPromises } from '@vue/test-utils'
 import { createRouter, createWebHistory } from 'vue-router'
-import OrderDetails from '@/components/order/OrderDetails.vue'
-import OrderHeader from '@/components/order/OrderHeader.vue'
-import OrderSupplierInfo from '@/components/order/OrderSupplierInfo.vue'
-import OrderAddresses from '@/components/order/OrderAddresses.vue'
+import OrderDetails from '@/components/orders/OrderDetails.vue'
+import OrderHeader from '@/components/orders/OrderHeader.vue'
+import OrderSupplierInfo from '@/components/orders/OrderSupplierInfo.vue'
+import OrderAddresses from '@/components/orders/OrderAddresses.vue'
 import SkeletonLoading from '@/components/base/SkeletonLoading.vue'
 import LoadingBox from '@/components/base/LoadingBox.vue'
 import Alert from '@/components/base/Alert.vue'
@@ -19,11 +19,11 @@ afterAll(() => server.close())
 
 const router = createRouter({
   history: createWebHistory(),
-  routes: [{ path: '/order/:id', component: OrderDetails }]
+  routes: [{ path: '/orders/:id', component: OrderDetails }]
 })
 
 describe('OrderDetails Integration', () => {
-  const createWrapper = async (route = '/order/123') => {
+  const createWrapper = async (route = '/orders/123') => {
     await router.push(route)
     await router.isReady()
 

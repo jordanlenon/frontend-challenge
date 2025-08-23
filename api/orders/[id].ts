@@ -2,9 +2,7 @@ export const config = { runtime: 'edge' };
 
 export default async function handler(req: Request) {
   const VITE_API_URL = process.env.VITE_API_URL;
-  if (!VITE_API_URL) {
-    return new Response('VITE_API_URL not set', { status: 500 });
-  }
+  if (!VITE_API_URL) return new Response('VITE_API_URL not set', { status: 500 });
 
   const incoming = new URL(req.url);
   const outgoingPath = incoming.pathname.replace(/^\/api\//, '');
@@ -25,11 +23,6 @@ export default async function handler(req: Request) {
     (init as any).duplex = 'half';
   }
 
-  const resp = await fetch(target.toString(), init);
-
-  const respHeaders = new Headers(resp.headers);
-  return new Response(resp.body, {
-    status: resp.status,
-    headers: respHeaders
-  });
+  const resp = await fetch(target, init);
+  return new Response(resp.body, { status: resp.status, headers: resp.headers });
 }

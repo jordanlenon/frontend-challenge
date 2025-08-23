@@ -33,12 +33,10 @@ test.describe('Order Details - Fluxo Principal', () => {
   })
 
   test('should load order details page', async ({ page }) => {
-    await page.goto('/order/123')
+    await page.goto('/orders/123')
 
-    // Verificar se a página carrega
     await expect(page.locator('.order-details')).toBeVisible()
 
-    // Verificar se os dados principais são exibidos (usando seletores mais específicos)
     await expect(page.locator('.order-header')).toBeVisible()
     await expect(page.locator('text=MTP West Buyer').first()).toBeVisible()
     await expect(page.locator('text=4510001114').first()).toBeVisible()

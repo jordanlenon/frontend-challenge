@@ -1,6 +1,6 @@
 import { describe, it, expect, vi } from 'vitest'
 import { mount } from '@vue/test-utils'
-import OrderSupplierInfo from '@/components/order/OrderSupplierInfo.vue'
+import OrderSupplierInfo from '@/components/orders/OrderSupplierInfo.vue'
 import Card from '@/components/base/Card.vue'
 import Icon from '@/components/base/Icon.vue'
 import Chip from '@/components/base/Chip.vue'
