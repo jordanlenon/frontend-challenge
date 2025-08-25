@@ -31,7 +31,7 @@
     "@vue/test-utils": "^2.4.6",
     "jsdom": "^26.1.0",
     "msw": "^2.10.5",
-    "vercel": "^46.0.2",
+    "vercel": "^41.0.2",
     "vitest": "^3.2.4"
   },
   "engines": {

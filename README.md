@@ -26,9 +26,10 @@ Aplicação Vue 3 responsiva para exibição de detalhes de pedidos.
 
 ## 🚀 Deploy
 
-### Vercel (Automático)
-- **Push para main** = Deploy automático de produção
-- **Pull Request** = Deploy de preview automático
+### GitHub Actions + Vercel
+- **Push para main** = Testes + Deploy automático de produção
+- **Pull Request** = Testes automáticos
+- **Testes**: Unit, Integration e E2E rodam automaticamente
 
 ## 🛠️ Tecnologias
 
