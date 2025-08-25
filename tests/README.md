@@ -68,6 +68,9 @@ npm run test:coverage
 
 # Executar testes e2e
 npm run test:e2e
+
+# Executar todos os testes
+npm run test:all
 ```
 
 ## Configuração
@@ -94,5 +97,5 @@ npm run test:e2e
 
 ## Resultados
 
-- **26 testes unitários/integração** em ~1 segundo
-- **1 teste e2e** em ~1.2 segundos
+- **26 testes unitários/integração**
+- **1 teste e2e**
