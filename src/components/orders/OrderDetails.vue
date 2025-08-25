@@ -46,6 +46,12 @@ onMounted(async () => {
     padding: 16px;
   }
 
+  .col-12 + .col-12 {
+    @media (max-width: 576px) {
+      margin-top: 4px;
+    }
+  }
+
   .order__item {
     & + .order__item {
       margin-top: 4px;
