@@ -1,6 +1,11 @@
 # 🚀 Frontend Challenge - Order Details Page
 Aplicação Vue 3 responsiva para exibição de detalhes de pedidos.
 
+[![Vue 3](https://img.shields.io/badge/Vue-3.5-4FC08D?style=flat-square&logo=vue.js&logoColor=white)](https://vuejs.org/)
+[![Vite](https://img.shields.io/badge/Vite-7.x-646CFF?style=flat-square&logo=vite&logoColor=white)](https://vitejs.dev/)
+[![Sass](https://img.shields.io/badge/Sass-1.9-CC6699?style=flat-square&logo=sass&logoColor=white)](https://sass-lang.com/)
+[![Vitest](https://img.shields.io/badge/Vitest-3.2-6E9F18?style=flat-square&logo=vitest&logoColor=white)](https://vitest.dev/)
+
 ## 📋 Sobre o Projeto
 
 - Este projeto implementa uma página de detalhes de pedidos seguindo um layout específico do Figma, consumindo dados de uma API REST.
