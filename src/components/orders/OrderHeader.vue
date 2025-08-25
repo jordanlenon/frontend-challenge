@@ -181,7 +181,7 @@ const { formatDate, formatCurrency, formatPhone } = useFormatters()
 
       @media (max-width: 768px) {
         flex-direction: column;
-        gap: 8px;
+        gap: 4px;
       }
     }
   }
